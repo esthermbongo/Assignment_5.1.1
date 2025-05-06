@@ -1,4 +1,4 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System;
 
 namespace Assignment_5._1._1
 {
@@ -8,7 +8,7 @@ namespace Assignment_5._1._1
         {
             Console.WriteLine("Please enter a number: ");
             int x = Convert.ToInt32(Console.ReadLine());
-            int reverse = 0;
+            
 
             bool result = IfPalindrome(x);
             Console.WriteLine(result);
@@ -16,10 +16,17 @@ namespace Assignment_5._1._1
 
         public static bool IfPalindrome(int x)
         {
-            while (x > 0)
+            int reverse = 0;
+            int temp = x;
+
+            while (temp > 0)
             {
-               x = x % 10;
+               reverse = reverse*10 + temp % 10;
+               temp = temp / 10;
             }
+
+            return reverse == x;
+            //updated
 
         }
 
